@@ -1,0 +1,20 @@
+﻿<Window x:Class="TestTransitionerSelection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <md:Transitioner x:Name="transitioner" SelectedIndex="0" SelectionChanged="Transitioner_SelectionChanged">
+        <StackPanel x:Name="panel1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="This is panel 1"/>
+            <Button Content="next" Click="Transitioner_ChangePanel"/>
+        </StackPanel>
+        <DockPanel x:Name="panel2">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
+                <Button Content="prev" Click="Transitioner_ChangePanel"/>
+                <TextBlock Text="This is panel 2"/>
+            </StackPanel>
+            <ListView ItemsSource="{Binding Items, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        </DockPanel>
+    </md:Transitioner>
+</Window>
